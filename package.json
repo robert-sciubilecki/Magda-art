@@ -1,0 +1,17 @@
+{
+  "name": "madziart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "copy-img": "cp -vR ./src/gallery-page/paintings ./dist",
+    "start": "parcel src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "parcel-reporter-static-files-copy": "^1.5.3"
+  }
+}
