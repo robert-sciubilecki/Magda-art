@@ -86,10 +86,10 @@ export function titleFormatter(title) {
 
 export function getMarkupForDetailsView(image) {
   // console.log(image);
-  const imgSrc = `../paintings/fullRes/${image.fileName}`;
-  const imgName = titleFormatter(image.title);
-  console.log(imgName);
-  console.log(imgSrc);
+  // const imgSrc = `../paintings/fullRes/${image.fileName}`;
+  // const imgName = titleFormatter(image.title);
+  // console.log(imgName);
+  // console.log(imgSrc);
 
   const markup = `
     <div class="painting-details-container">
@@ -97,18 +97,22 @@ export function getMarkupForDetailsView(image) {
         <div class="painting-details-close">
           <img class='painting-details-close-icon' src="../icons/close-outline.svg">
         </div>
-        <div class="painting-details">
-          <h3 class="painting-details-name">${imgName}</h3>
-          <img
-            class="painting-details-img"
-            src="${imgSrc}"
-            alt="${imgName} closeup"
-          />
-          <!-- </div> -->
-          <p class="painting-details-size">Size = 120cm x 80cm</p>
+        
+        <div class="loading-spinner">
+          <img src="../icons/reload-circle-outline.svg" alt="Loading spinner" />
         </div>
       </div>
     </div>
   `;
   return markup;
 }
+
+`<div class="painting-details">
+          <h3 class="painting-details-name"></h3>
+          <img
+            class="painting-details-img"
+            src=""
+            alt=" closeup"
+          />
+          <p class="painting-details-size">Size = 120cm x 80cm</p>
+        </div>`;

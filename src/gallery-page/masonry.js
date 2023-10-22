@@ -111,6 +111,10 @@ function createMasonryGrid(columns, images) {
   fillTheRemainingSpace(columnHeights);
 }
 
+masonryGrid.addEventListener("load", function (e) {
+  console.log(e);
+});
+
 function fillTheRemainingSpace(columnHeights) {
   const fillingDivsMarkpups = [1, 2, 3];
   if (Object.entries(columnHeights).length === 1) return;
@@ -167,18 +171,55 @@ window.addEventListener("resize", function (e) {
   previousScreenSize = window.innerWidth;
 });
 
+// ******************************************************
+// -----DETAILS VIEW WITH LOADING SPINNER---------------
+// ******************************************************
+
 const masonryGallery = document.querySelector(".masonry-gallery");
 const paintingDetailsModal = document.querySelector(".painting-details-modal");
 
 masonryGallery.addEventListener("click", function (e) {
   const galleryImg = e.target.closest(".gallery-image");
   if (!galleryImg) return;
+  paintingDetailsModal.innerHTML = "";
+
   const id = Number(galleryImg.querySelector("img").dataset.id);
   const img = images.find((img) => img.id === id);
   const markup = getMarkupForDetailsView(img);
   paintingDetailsModal.insertAdjacentHTML("afterbegin", markup);
   paintingDetailsModal.classList.remove("hidden");
   navbar.classList.add("sticky-permanent");
+
+  const paintingDetailsBackground = document.querySelector(
+    ".painting-details-background"
+  );
+
+  const spinner = document.querySelector(".loading-spinner");
+
+  const paintingImgEl = document.createElement("img");
+  paintingImgEl.classList.add("painting-details-img");
+  paintingImgEl.src = `../paintings/fullRes/${img.fileName}`;
+
+  const paintingDetailsEl = document.createElement("div");
+  paintingDetailsEl.classList.add("painting-details");
+  paintingDetailsEl.classList.add("hidden");
+  const paintingNameEl = document.createElement("h3");
+  paintingNameEl.classList.add("painting-details-name");
+  paintingNameEl.textContent = titleFormatter(img.title);
+  const paintingSizeEl = document.createElement("p");
+  paintingSizeEl.classList.add("painting-details-size");
+  paintingSizeEl.textContent = "Size = 120cm x 80cm";
+
+  paintingImgEl.onload = function () {
+    paintingDetailsEl.appendChild(paintingNameEl);
+    paintingDetailsEl.appendChild(paintingImgEl);
+    paintingDetailsEl.appendChild(paintingSizeEl);
+    spinner.remove();
+    paintingDetailsBackground.appendChild(paintingDetailsEl);
+    setTimeout(() => {
+      paintingDetailsEl.classList.remove("hidden");
+    }, 100);
+  };
 
   window.addEventListener("click", function (e) {
     if (
@@ -191,6 +232,10 @@ masonryGallery.addEventListener("click", function (e) {
     }
   });
 });
+
+// ****************************************************
+// -------------------DETAILS VIEW END-----------------
+// ****************************************************
 
 // ****************************************************
 // -------------MASONRY GRID LAYOUT END----------------

@@ -35,7 +35,7 @@ SPACING SYSTEM (px)
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.4rem rgba(128, 128, 128, 0.301);
+  /* box-shadow: 0 0 0 0.4rem rgba(128, 128, 128, 0.301); */
 }
 
 :root {
@@ -87,9 +87,7 @@ body {
 /////////// HEADER SECTION /////////////////
 ///////////////////////////////////////// */
 
-/* /////////////////////////////////////////
-/////////// UNIVERSAL //// /////////////////
-///////////////////////////////////////// */
+/* /////////// UNIVERSAL //// ///////////////// */
 
 .nav {
   display: flex;
@@ -114,7 +112,7 @@ body {
   width: 100%;
   height: 5rem;
   background-color: #404040ef;
-  box-shadow: none;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(32, 32, 32, 0.596);
 }
 
 .logo {
@@ -159,9 +157,7 @@ body {
   cursor: pointer;
 }
 
-/* /////////////////////////////////////////
-/////////// UNIVERSAL //// /////////////////
-///////////////////////////////////////// */
+/* /////////// UNIVERSAL //// ///////////////// */
 
 .main-header {
   height: 100vh;
@@ -341,7 +337,7 @@ body {
 
 .section-bio {
   background-color: rgb(194, 194, 194);
-  padding: 9rem 0 9.6rem;
+  padding: 9.6rem 0 9.6rem;
 }
 
 .bio {
@@ -489,7 +485,71 @@ body {
 ///////////////////////////////////////// */
 
 /* /////////////////////////////////////////
-//////////// SECTION CTA  //////////////////
+///////// SECTION VISUALISATIONS ///////////
+///////////////////////////////////////// */
+
+.placeholder {
+  color: #00000000;
+}
+
+.visualisation-heading {
+  margin-top: 9.6rem;
+  font-size: 4.8rem;
+  color: var(--primary-color-tint);
+  text-align: center;
+}
+
+.visualisation-container {
+  box-shadow: 0 0 3rem 3rem rgba(0, 0, 0, 0.103);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.visualisation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4.8rem;
+  padding: 4.8rem;
+}
+
+.visualisation-1,
+.visualisation-3 {
+  background-color: #c9c9c9;
+}
+
+.visualisation-2 {
+  background-color: #dadada;
+}
+
+.visualisation-image {
+  width: 100%;
+  box-shadow: 0 0 0.5rem 1rem rgba(85, 41, 0, 0.329);
+}
+
+.visualisation-text {
+  width: 100%;
+}
+
+.visualisation-text p {
+  font-size: 2.8rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+}
+
+.visualisation-image img {
+  width: 100%;
+}
+
+.cta-heading {
+  font-size: 3.6rem;
+  text-align: center;
+  color: #272727bb;
+  margin-bottom: 9.6rem;
+}
+
+/* /////////////////////////////////////////
+////SECTION VISUALISATIONS END  ////////////
 ///////////////////////////////////////// */
 
 .cta {

@@ -46,15 +46,15 @@ body {
   padding: 1rem 5rem;
   z-index: 5;
   background-color: #404040af;
-  box-shadow: 0 0.4rem 0.4rem rgba(255, 255, 255, 0.24);
+  box-shadow: 0 0.4rem 0.2rem rgba(165, 165, 165, 0.24);
   overflow: visible;
   height: 5rem;
   transition: 1s;
 }
 
-.nav.stick {
+.nav.sticky {
   background-color: #40404070;
-  box-shadow: none;
+  box-shadow: 0 0.4rem 0.4rem rgba(48, 48, 48, 0.514);
 }
 
 .logo {
@@ -428,7 +428,7 @@ img {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.459);
   /* backdrop-filter: blur(2px); */
@@ -438,6 +438,7 @@ img {
   width: 90%;
   height: 90%;
   background-color: #242424c7;
+  padding: 0 3.2rem;
   /* backdrop-filter: blur(6px); */
   display: flex;
   flex-direction: column;
@@ -455,7 +456,13 @@ img {
   justify-content: center;
   gap: 2rem;
   padding: 4.4rem 4.4remrem;
+  transition: all 0.5s;
+  opacity: 1;
   /* flex-grow: 0; */
+}
+
+.painting-details.hidden {
+  opacity: 0;
 }
 
 .painting-details-name {
@@ -469,7 +476,7 @@ img {
 }
 
 .painting-details-img {
-  height: 80%;
+  max-height: 80%;
   box-shadow: 0 0 1rem 0.3rem rgba(0, 108, 250, 0.452);
 }
 
@@ -489,6 +496,33 @@ img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(301deg)
     brightness(101%) contrast(100%);
   cursor: pointer;
+}
+
+.loading-spinner {
+  /* display: inline-block; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10rem;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner img {
+  filter: invert(100%) sepia(1%) saturate(1060%) hue-rotate(166deg)
+    brightness(70%) contrast(71%);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* /////////////////////////////////////////

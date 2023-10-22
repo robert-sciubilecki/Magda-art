@@ -38,7 +38,10 @@ navbar.addEventListener("click", (e) => {
 
   const targetId = e.target.closest("a").getAttribute("href").substring(1);
   const targetSection = document.getElementById(targetId);
-  const blockAlign = targetId === "section-contact" ? "center" : "start";
+  const blockAlign =
+    targetId === "section-contact" || targetId === "section-gallery"
+      ? "center"
+      : "start";
   console.log(blockAlign);
 
   targetSection.scrollIntoView({ behavior: "smooth", block: blockAlign });
