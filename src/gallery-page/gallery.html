@@ -14,46 +14,136 @@
     <script type="module" src="masonry.js"></script>
   </head>
 
-  <header class="main-header margin-bottom-xl">
-    <!-- <div
-      class="header-img"
-      aria-label="Magdalena's painting called Sparkling lake as a background image"
-    ></div> -->
-    <nav class="nav">
-      <div class="logo">
-        <a href="#"
-          ><img
-            class="logo-img"
-            src="../assets/images/page-images/logo.webp"
-            alt=""
-        /></a>
-
-        <!-- <h2>Gallery</h2> -->
-      </div>
-      <div class="main-menu">
-        <ul class="menu-items">
-          <li><a class="nav-link" href="#">Home</a></li>
-          <li><a class="nav-link" href="#">Paintings</a></li>
-          <li><a class="nav-link" href="#">Visualizations</a></li>
-          <li><a class="nav-link" href="#">Exhibitions</a></li>
-          <li><a class="nav-link" href="#">BIO</a></li>
-          <li><a class="nav-link" href="#">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- <div class="header-name">
-      <h1 class="name">Magdalena Mędzkiewicz</h1>
-      <p class="portfolio">Portfolio</p>
-    </div> -->
-    <!-- <div class="strip class="nav-link""></div> -->
-  </header>
-
   <body>
+    <header class="main-header margin-bottom-xl">
+      <!-- <div
+        class="header-img"
+        aria-label="Magdalena's painting called Sparkling lake as a background image"
+      ></div> -->
+      <nav class="nav">
+        <div class="logo">
+          <a href="#"
+            ><img
+              class="logo-img"
+              src="../assets/images/page-images/logo.webp"
+              alt=""
+          /></a>
+
+          <!-- <h2>Gallery</h2> -->
+        </div>
+        <div class="main-menu">
+          <ul class="menu-items">
+            <li><a class="nav-link" href="../index.html">Home</a></li>
+            <!-- <li><a class="nav-link" href="#">Paintings</a></li> -->
+            <!-- <li><a class="nav-link" href="#">Visualizations</a></li> -->
+            <!-- <li><a class="nav-link" href="#">Exhibitions</a></li> -->
+            <!-- <li><a class="nav-link" href="#">BIO</a></li> -->
+            <li>
+              <a class="nav-link contact-link" href="#section-contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- <div class="header-name">
+        <h1 class="name">Magdalena Mędzkiewicz</h1>
+        <p class="portfolio">Portfolio</p>
+      </div> -->
+      <!-- <div class="strip class="nav-link""></div> -->
+    </header>
+
     <section class="section-masonry">
       <main class="masonry-gallery">
         <!-- <div class="masonry-header gallery-header">Gallery</div> -->
         <div class="masonry-grid"></div>
       </main>
+      <div class="painting-details-modal hidden"></div>
     </section>
+
+    <h3 class="cta-heading">
+      Have a question or ready to brighten your space?
+    </h3>
+
+    <section id="section-contact">
+      <div class="cta container margin-bottom-xl">
+        <div class="contact-form-container">
+          <h2 class="contact-heading">Contact Me</h2>
+          <form class="contact-form" action="process_form.php" method="POST">
+            <label for="name">Your Name:</label>
+            <input
+              class="credentials-input form-input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+
+            <label for="email">Your Email:</label>
+            <input
+              class="credentials-input form-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label for="message">Your Message:</label>
+            <textarea
+              class="message-area form-input"
+              id="message"
+              name="message"
+              rows="6"
+              required
+            ></textarea>
+
+            <input class="submit-btn" type="submit" value="Send" />
+          </form>
+        </div>
+
+        <div class="contact-mosaic">
+          <div class="contact-photo">
+            <img src="../assets/images/contact-gallery/face-0.3.webp" alt="" />
+          </div>
+          <div class="contact-paintings">
+            <figure class="contact-mosaic-item">
+              <img
+                src="../assets/images/contact-gallery/Lonely-island.webp"
+                alt=""
+              />
+            </figure>
+            <figure class="contact-mosaic-item">
+              <img
+                src="../assets/images/contact-gallery/Spectrum-of-thoughts.webp"
+                alt=""
+              />
+            </figure>
+            <figure class="contact-mosaic-item">
+              <img
+                src="../assets/images/contact-gallery/Sub-dominant.webp"
+                alt=""
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img
+            class="logo-img"
+            src="../assets/images/page-images/logo.webp"
+            alt="Logo"
+          />
+        </div>
+        <div class="footer-info">
+          <p>Copyrights &copy; 2023 by Magdalena Medzkiewicz Art.</p>
+          <p>Desig by Robert Sciu Designs</p>
+          <p>Contact: robert.sciu@gmail.com</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

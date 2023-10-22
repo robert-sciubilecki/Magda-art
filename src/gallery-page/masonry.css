@@ -18,13 +18,11 @@ SPACING SYSTEM (px)
 
 html {
   font-size: 62.5%;
-  font-family: "Inter", sans-serif;
 }
 
 body {
-  /* setting font size for rem usage */
-  font-size: 62.5%;
   font-family: "Inter", sans-serif;
+  background-color: var(--masonry-background);
 }
 
 :root {
@@ -42,26 +40,20 @@ body {
 .nav {
   display: flex;
   justify-content: space-between;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 1rem 5rem;
   z-index: 5;
   background-color: #404040af;
   box-shadow: 0 0.4rem 0.4rem rgba(255, 255, 255, 0.24);
   overflow: visible;
   height: 5rem;
-  transition: 0.2s;
+  transition: 1s;
 }
 
-.hidden {
-  opacity: 0;
-}
-
-.nav.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 5rem;
-  background-color: #404040ef;
+.nav.stick {
+  background-color: #40404070;
   box-shadow: none;
 }
 
@@ -73,12 +65,21 @@ body {
   width: 8rem;
   background-color: rgb(66, 66, 66);
   border-radius: 4px;
+  transition: 1.4s;
 }
 
 .logo-img {
   width: 8.6rem;
   filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(145deg)
     brightness(111%) contrast(111%);
+}
+
+.nav.sticky .logo,
+.nav.sticky-permanent .logo {
+  transform: scale(0.6) translate(0%, -55%);
+}
+
+.nav.sticky .logo-img {
 }
 
 .main-menu {
@@ -122,18 +123,21 @@ body {
   background-color: var(--masonry-background);
   color: var(--masonry-color);
   /* position: fixed; */
-  top: 0;
+  /* top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; */
+  margin-top: 9.8rem;
+  position: relative;
+
   /* overflow: scroll; */
 }
 
-.masonry-header {
+/* .masonry-header {
   position: fixed;
   width: 100%;
   height: 7.4rem;
-  /* background-color: rgba(31, 4, 56, 0.555); */
+  background-color: rgba(31, 4, 56, 0.555);
   display: flex;
   align-items: center;
   padding: 0 2vw;
@@ -141,14 +145,15 @@ body {
   z-index: 10;
   font-weight: 600;
   font-size: 4.4rem;
-}
+} */
 
 .masonry-grid {
   position: relative;
   width: 100%;
   display: flex;
   gap: 1rem;
-  padding: 8.6rem 2vh;
+  padding: 0 2vh 0;
+  margin-bottom: 14rem;
 }
 
 .column-gallery {
@@ -184,12 +189,12 @@ img {
 }
 
 .gallery-image:hover .overlay {
-  opacity: 0.9;
+  opacity: 0.7;
   cursor: pointer;
 }
 
 .gallery-image:hover .overlay img {
-  opacity: 0.9;
+  opacity: 1;
 }
 .overlay h3 {
   font-size: 1.2rem;
@@ -199,6 +204,320 @@ img {
   opacity: 1;
 }
 
+.gallery-title {
+  opacity: 1;
+  font-size: 2rem;
+}
+
+.column-gallery-filler {
+  background-color: #4d4d4d9f;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HOME PAGE FILLER */
+
+.back-to-home-filler:link,
+.back-to-home-filler:visited,
+.buy-painting-filler:link,
+.buy-painting-filler:visited {
+  font-size: 3rem;
+  color: #dadadad3;
+  font-family: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.back-to-home-filler:hover,
+.back-to-home-filler:active,
+.buy-painting-filler:hover,
+.buy-painting-filler:active {
+  color: white;
+}
+
+/* HOME PAGE FILLER END */
+
+/* SOCIAL FILLER  */
+
+.social-list {
+  display: flex;
+  list-style: none;
+  gap: 3.2rem;
+}
+
+.social-icon {
+  font-size: 5.2rem;
+  width: 7.4rem;
+  filter: invert(67%) sepia(5%) saturate(13%) hue-rotate(328deg) brightness(85%)
+    contrast(98%);
+  transition: 0.4s;
+}
+
+.social-icon:hover {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(68deg)
+    brightness(102%) contrast(102%);
+  cursor: pointer;
+}
+
+/* SOCIAL FILLER END */
+
 /* ****************************************************
 -------------MASONRY GRID LAYOUT END----------------
 **************************************************** */
+
+/* /////////////////////////////////////////
+//////////// SECTION CTA  //////////////////
+///////////////////////////////////////// */
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-top: 14rem;
+}
+
+.cta-heading {
+  font-size: 3.6rem;
+  text-align: center;
+  color: #dadadabb;
+  margin-bottom: 14rem;
+}
+
+#section-contact {
+}
+
+.cta {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: 63fr 37fr;
+  background-color: #4d4d4d9f;
+  /* padding: 5rem; */
+  /* margin-bottom: 20rem; */
+  box-shadow: 0 0 5rem 3rem #29292938;
+  border-radius: 9px;
+  overflow: hidden;
+  padding: 1rem;
+  margin-bottom: 20rem;
+}
+
+.contact-heading {
+  font-size: 3.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: inherit;
+  color: #dadada;
+}
+
+.contact-form-container {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem 8rem 4.4rem 8rem;
+}
+
+.contact-form {
+  flex: 1;
+  display: flex;
+  font-size: 2rem;
+  font-family: inherit;
+  color: #dadada;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.form-input {
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #494949;
+  box-shadow: inset 0 0 0 2px rgba(141, 141, 141, 0.247);
+  margin-bottom: 1.4rem;
+  color: #dadada;
+}
+
+.form-input:focus {
+  /* outline: none; */
+  background-color: #3f3f3f;
+}
+
+.message-area {
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 2rem;
+}
+
+.submit-btn {
+  height: 6.4rem;
+  font-size: 3rem;
+  background-color: #008cff;
+
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  color: var(--secondary-color);
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #269af8;
+}
+
+.contact-mosaic {
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  gap: 0.6rem;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+}
+
+.contact-photo {
+}
+
+.contact-paintings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-photo img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* object-fit: cover; */
+  /* overflow: hidden; */
+}
+
+.contact-mosaic-item img {
+  /* overflow: hidden; */
+  /* object-fit: cover; */
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* /////////////////////////////////////////
+//////////// SECTION CTA END ///////////////
+///////////////////////////////////////// */
+
+/* /////////////////////////////////////////
+//////////// SECTION MODAL //////////////////
+///////////////////////////////////////// */
+
+.painting-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  backdrop-filter: blur(6px);
+}
+
+.hidden {
+  z-index: -5;
+  opacity: 0;
+}
+
+.painting-details-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.459);
+  /* backdrop-filter: blur(2px); */
+}
+
+.painting-details-background {
+  width: 90%;
+  height: 90%;
+  background-color: #242424c7;
+  /* backdrop-filter: blur(6px); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 9px;
+  transform: translate(0, 3%);
+}
+
+.painting-details {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4.4rem 4.4remrem;
+  /* flex-grow: 0; */
+}
+
+.painting-details-name {
+  font-size: 3.6rem;
+  color: #dadada;
+}
+
+.painting-details-size {
+  font-size: 2.4rem;
+  color: #dadada;
+}
+
+.painting-details-img {
+  height: 80%;
+  box-shadow: 0 0 1rem 0.3rem rgba(0, 108, 250, 0.452);
+}
+
+.painting-details-close {
+  position: absolute;
+  right: 1.4rem;
+  top: 1.4rem;
+}
+
+.painting-details-close-icon {
+  width: 5rem;
+  filter: invert(70%) sepia(0%) saturate(735%) hue-rotate(213deg)
+    brightness(99%) contrast(88%);
+}
+
+.painting-details-close-icon:hover {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(301deg)
+    brightness(101%) contrast(100%);
+  cursor: pointer;
+}
+
+/* /////////////////////////////////////////
+//////////// SECTION MODAL END ///////////////
+///////////////////////////////////////// */
+
+/* /////////////////////////////////////////
+//////////// FOOTER ////////////////////////
+///////////////////////////////////////// */
+
+footer {
+  background-color: #404040af;
+  padding: 2rem;
+  box-shadow: 0 0 0.3rem 0.1rem #008cff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info {
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #dadadaa2;
+}
+
+/* /////////////////////////////////////////
+//////////// FOOTER END ////////////////////
+///////////////////////////////////////// */

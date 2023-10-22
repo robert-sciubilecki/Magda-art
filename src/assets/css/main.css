@@ -308,7 +308,7 @@ body {
 .paralax {
   min-height: 70vh;
   background-attachment: fixed;
-  background-position: top;
+
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -319,6 +319,7 @@ body {
 }
 
 .paralax-1 {
+  background-position: top;
   background-image: url(../images/page-images/magdalena-in-studio.webp);
 }
 
@@ -456,6 +457,7 @@ body {
 .paralax-2 {
   background-image: url(../images/page-images/Italy.webp);
   box-shadow: 0 0 0.6rem 0.2rem #216957;
+  background-position: center;
 }
 
 .gallery-link-background {
@@ -492,7 +494,7 @@ body {
 
 .cta {
   display: grid;
-  grid-template-columns: 65fr 35fr;
+  grid-template-columns: 63fr 37fr;
   background-color: var(--secondary-color);
   /* padding: 5rem; */
   /* margin-bottom: 20rem; */
@@ -514,7 +516,7 @@ body {
   /* flex: 1; */
   display: flex;
   flex-direction: column;
-  padding: 3.2rem 9.6rem 4.4rem 9.6rem;
+  padding: 3.2rem 8rem 4.4rem 8rem;
 }
 
 .contact-form {
@@ -581,9 +583,13 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  /* object-fit: cover; */
+  /* overflow: hidden; */
 }
 
 .contact-mosaic-item img {
+  /* overflow: hidden; */
+  /* object-fit: cover; */
   display: block;
   width: 100%;
   height: 100%;
@@ -591,6 +597,10 @@ body {
 
 /* /////////////////////////////////////////
 //////////// SECTION CTA END ///////////////
+///////////////////////////////////////// */
+
+/* /////////////////////////////////////////
+//////////// FOOTER ////////////////////////
 ///////////////////////////////////////// */
 
 footer {
@@ -611,3 +621,7 @@ footer {
   text-align: right;
   color: var(--primary-color-tint);
 }
+
+/* /////////////////////////////////////////
+//////////// FOOTER END ////////////////////
+///////////////////////////////////////// */

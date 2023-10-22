@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
   {
     root: null,
     rootMargin: "0px",
-    threshold: 0.0,
+    threshold: 0,
   }
 );
 
@@ -31,9 +31,15 @@ const observer = new IntersectionObserver(
 observer.observe(header);
 
 navbar.addEventListener("click", (e) => {
+  if (e.target.classList.contains("external")) return;
+  if (!e.target.closest("a")) return;
   e.preventDefault();
-  const targetId = e.target.getAttribute("href").substring(1);
-  if (!targetId) return;
+  console.log(e.target.closest("a").getAttribute("href").substring(1));
+
+  const targetId = e.target.closest("a").getAttribute("href").substring(1);
   const targetSection = document.getElementById(targetId);
-  targetSection.scrollIntoView({ behavior: "smooth" });
+  const blockAlign = targetId === "section-contact" ? "center" : "start";
+  console.log(blockAlign);
+
+  targetSection.scrollIntoView({ behavior: "smooth", block: blockAlign });
 });

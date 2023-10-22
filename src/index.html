@@ -14,14 +14,14 @@
     <script type="module" src="assets/js/main.js"></script>
   </head>
   <body>
-    <header class="main-header margin-bottom-xl">
+    <header id="section-header" class="main-header margin-bottom-xl">
       <div
         class="header-img"
         aria-label="Magdalena's painting called Sparkling lake as a background image"
       ></div>
       <nav class="nav">
         <div class="logo">
-          <a href="#"
+          <a href="#section-header"
             ><img
               class="logo-img"
               src="assets/images/page-images/logo.webp"
@@ -30,13 +30,15 @@
         </div>
         <div class="main-menu">
           <ul class="menu-items">
-            <li><a class="nav-link" href="#">Home</a></li>
-            <li><a class="nav-link" href="#section-bio">BIO</a></li>
+            <li><a class="nav-link" href="#section-header">Home</a></li>
+            <li><a class="nav-link" href="#section-bio">Bio</a></li>
             <li>
-              <a class="nav-link" href="#section-gallery">Gallery</a>
+              <a class="nav-link external" href="gallery-page/gallery.html"
+                >Gallery</a
+              >
             </li>
             <li><a class="nav-link" href="#">Visualizations</a></li>
-            <li><a class="nav-link" href="#">Exhibitions</a></li>
+            <!-- <li><a class="nav-link" href="#">Exhibitions</a></li> -->
             <li><a class="nav-link" href="#section-contact">Contact</a></li>
           </ul>
         </div>
@@ -188,7 +190,7 @@
       </div>
     </section>
 
-    <section id="section-gallery">
+    <section>
       <div class="paralax paralax-2 margin-bottom-xl">
         <div class="gallery-link-background">
           <div class="container">

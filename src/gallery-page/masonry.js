@@ -2,10 +2,63 @@
 // ----------------MASONRY GRID LAYOUT-----------------
 // ****************************************************
 import { getImages } from "./paintings-data";
+import { markups } from "./markups";
+import { getMarkupForDetailsView } from "./markups";
+import { titleFormatter } from "./markups";
 
 const images = getImages();
 
 const masonryGrid = document.querySelector(".masonry-grid");
+
+const lowercaseWords = [
+  "a",
+  "an",
+  "and",
+  "as",
+  "at",
+  "but",
+  "by",
+  "down",
+  "for",
+  "from",
+  "if",
+  "in",
+  "into",
+  "like",
+  "near",
+  "nor",
+  "of",
+  "off",
+  "on",
+  "once",
+  "onto",
+  "or",
+  "over",
+  "past",
+  "so",
+  "than",
+  "that",
+  "the",
+  "to",
+  "upon",
+  "when",
+  "with",
+  "yet",
+];
+
+// function titleFormatter(title) {
+//   const titleToArr = title.split(" ").map((word, index) => {
+//     if (
+//       index === 0 ||
+//       index === title.length - 1 ||
+//       !lowercaseWords.includes(word.toLowerCase())
+//     ) {
+//       return word.charAt(0).toUpperCase() + word.slice(1);
+//     }
+//     return word.toLowerCase();
+//   });
+//   return titleToArr.join(" ");
+// }
 
 function createMasonryGrid(columns, images) {
   // this element is cleared and then populated with div.columns with div.images
@@ -24,7 +77,7 @@ function createMasonryGrid(columns, images) {
     columnDiv.classList.add(`${col}`);
     masonryGrid.appendChild(columnDiv);
   });
-  //Last but not least adding images, each to the column that has lowest height during each iteration
+  //Lastly adding images, each to the column that has lowest height during each iteration
   images.forEach(function (img) {
     // checking which of the columns in columnHeights object is the shortest
     const heights = Object.values(columnHeights);
@@ -40,20 +93,40 @@ function createMasonryGrid(columns, images) {
     imgDiv.classList.add("gallery-image");
     let image = document.createElement("img");
     image.src = img.fullRes;
+    image.dataset.id = img.id;
     // image.setAttribute("data-src", img.fullRes);
     let overlay = document.createElement("div");
     overlay.classList.add("overlay");
-    let title = document.createElement("h3");
+    let title = document.createElement("span");
     title.classList.add("gallery-title");
-    title.textContent = img.title.split(".")[0];
+    title.textContent = titleFormatter(img.title);
     overlay.appendChild(title);
     imgDiv.appendChild(image);
     imgDiv.appendChild(overlay);
-    console.log(imgDiv);
 
     // this step is super important We need it to know which column is the shortest
     columnHeights[lowestCol] += img.height;
     lowestColEL.appendChild(imgDiv);
+  });
+  fillTheRemainingSpace(columnHeights);
+}
+
+function fillTheRemainingSpace(columnHeights) {
+  const fillingDivsMarkpups = [1, 2, 3];
+  if (Object.entries(columnHeights).length === 1) return;
+  const highestCol = Math.max(...Object.values(columnHeights));
+  const remainigCols = Object.keys(columnHeights)
+    .filter((column) => columnHeights[column] < highestCol)
+    .reduce((obj, key) => {
+      obj[key] = columnHeights[key];
+      return obj;
+    }, {});
+  Object.keys(remainigCols).forEach((col, index) => {
+    const colEL = document.querySelector(`.${col}`);
+    const divEl = document.createElement("div");
+    divEl.classList.add("column-gallery-filler");
+    divEl.innerHTML = markups[index];
+    colEL.appendChild(divEl);
   });
 }
 
@@ -65,11 +138,12 @@ masonryGrid.addEventListener("mouseover", function (e) {
     e.target.classList.contains("gallery-title")
   ) {
     e.target.closest(".gallery-image").querySelector("img").style.transform =
-      "scale(1.05)";
+      "scale(1.03)";
   }
 });
 
 masonryGrid.addEventListener("mouseout", function (e) {
+  if (!e.target.parentElement.querySelector("img")) return;
   e.target.parentElement.querySelector("img").style.transform = "scale(1)";
 });
 
@@ -93,6 +167,67 @@ window.addEventListener("resize", function (e) {
   previousScreenSize = window.innerWidth;
 });
 
+const masonryGallery = document.querySelector(".masonry-gallery");
+const paintingDetailsModal = document.querySelector(".painting-details-modal");
+
+masonryGallery.addEventListener("click", function (e) {
+  const galleryImg = e.target.closest(".gallery-image");
+  if (!galleryImg) return;
+  const id = Number(galleryImg.querySelector("img").dataset.id);
+  const img = images.find((img) => img.id === id);
+  const markup = getMarkupForDetailsView(img);
+  paintingDetailsModal.insertAdjacentHTML("afterbegin", markup);
+  paintingDetailsModal.classList.remove("hidden");
+  navbar.classList.add("sticky-permanent");
+
+  window.addEventListener("click", function (e) {
+    if (
+      e.target.classList.contains("painting-details-close-icon") ||
+      e.target.classList.contains("painting-details-container") ||
+      e.target.closest(".nav")
+    ) {
+      paintingDetailsModal.classList.add("hidden");
+      navbar.classList.remove("sticky-permanent");
+    }
+  });
+});
+
 // ****************************************************
 // -------------MASONRY GRID LAYOUT END----------------
 // ****************************************************
+
+const contactLink = document.querySelector(".contact-link");
+const navbar = document.querySelector(".nav");
+const header = document.querySelector(".main-header");
+
+contactLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  const targetId = e.target.getAttribute("href").substring(1);
+  const targetSection = document.getElementById(targetId);
+  targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    console.log(entries);
+
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        setTimeout(() => {
+          navbar.classList.add("sticky");
+        }, 200);
+      } else {
+        setTimeout(() => {
+          navbar.classList.remove("sticky");
+        }, 200);
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1,
+  }
+);
+
+observer.observe(header);
