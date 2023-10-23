@@ -84,7 +84,7 @@ body {
   padding: 1rem 5rem;
   z-index: 5;
   background-color: #404040af;
-  box-shadow: 0 0.4rem 0.4rem rgba(255, 255, 255, 0.24);
+  box-shadow: 0 0.4rem 0.4rem rgba(255, 255, 255, 0.158);
   overflow: visible;
   height: 5rem;
   transition: 0.2s;
@@ -127,6 +127,7 @@ body {
 
 .main-menu.show-mobile-menu {
   transform: translate(0);
+  z-index: 10;
 }
 
 .menu-items {
@@ -151,11 +152,14 @@ body {
 
 .btn-mobile {
   display: none;
-  width: 8rem;
+  width: 7.6rem;
   border: none;
   top: 4.4rem;
   right: 4rem;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(37, 35, 35, 0.534);
+  border: 1px solid #dadadaad;
+
+  border-radius: 9px;
 }
 
 .btn-mobile-icon {
@@ -330,8 +334,9 @@ body {
 }
 
 .paralax-1 {
-  background-position: top;
+  /* background-position: top; */
   background-image: url(../images/page-images/magdalena-in-studio.webp);
+  background-position: 100% calc(40% + 50px);
 }
 
 .bio-header {
