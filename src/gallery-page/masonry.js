@@ -63,12 +63,14 @@ const lowercaseWords = [
 function createMasonryGrid(columns, images) {
   // this element is cleared and then populated with div.columns with div.images
   masonryGrid.innerHTML = "";
+
   // this is and array of column heights, each starting at 0 as they're all empty at this point
   let columnHeights = {};
   //creating keys in column heights array depending on number passed into columns parameter
   for (let i = 0; i < columns; i++) {
     columnHeights[`column${i}`] = 0;
   }
+
   // creating div elements in html doc for each of the column and appending them to masonry grid
   // this step is necessary at this point to be able to appendChildren to column elements
   Object.keys(columnHeights).forEach((col) => {
@@ -77,6 +79,7 @@ function createMasonryGrid(columns, images) {
     columnDiv.classList.add(`${col}`);
     masonryGrid.appendChild(columnDiv);
   });
+
   //Lastly adding images, each to the column that has lowest height during each iteration
   images.forEach(function (img) {
     // checking which of the columns in columnHeights object is the shortest
@@ -85,35 +88,61 @@ function createMasonryGrid(columns, images) {
     const lowestCol = Object.keys(columnHeights).find(
       (key) => columnHeights[key] === minValue
     );
+
     // selecting html element based on the lowestCol variable.
     // it is possible because columnHeights key names === column classes names
     const lowestColEL = document.querySelector(`.${lowestCol}`);
+
+    const spinnerImg = document.createElement("img");
+    spinnerImg.src = "../icons/reload-circle-outline.svg";
     // this is obvious
-    let imgDiv = document.createElement("div");
+    const imgDiv = document.createElement("div");
     imgDiv.classList.add("gallery-image");
-    let image = document.createElement("img");
-    image.src = img.fullRes;
-    image.dataset.id = img.id;
-    // image.setAttribute("data-src", img.fullRes);
-    let overlay = document.createElement("div");
+
+    const spinner = document.createElement("div");
+    spinner.classList.add("loading-spinner");
+    spinner.classList.add("gallery-spinner");
+    spinner.classList.add("hidden");
+    setTimeout(() => {
+      spinner.classList.remove("hidden");
+    }, 2000);
+    spinner.appendChild(spinnerImg);
+
+    console.log(spinner);
+
+    imgDiv.appendChild(spinner);
+
+    const overlay = document.createElement("div");
     overlay.classList.add("overlay");
-    let title = document.createElement("span");
+    const title = document.createElement("span");
     title.classList.add("gallery-title");
     title.textContent = titleFormatter(img.title);
-    overlay.appendChild(title);
-    imgDiv.appendChild(image);
-    imgDiv.appendChild(overlay);
+
+    lowestColEL.appendChild(imgDiv);
+
+    const image = document.createElement("img");
+    image.classList.add("hidden");
+    image.dataset.id = img.id;
+    image.src = img.fullRes;
+
+    image.onload = function () {
+      overlay.appendChild(title);
+      imgDiv.appendChild(image);
+      imgDiv.appendChild(overlay);
+      spinner.remove();
+      setTimeout(() => {
+        image.classList.remove("hidden");
+      }, 300);
+    };
+
+    // image.setAttribute("data-src", img.fullRes);
 
     // this step is super important We need it to know which column is the shortest
     columnHeights[lowestCol] += img.height;
-    lowestColEL.appendChild(imgDiv);
   });
+
   fillTheRemainingSpace(columnHeights);
 }
-
-masonryGrid.addEventListener("load", function (e) {
-  console.log(e);
-});
 
 function fillTheRemainingSpace(columnHeights) {
   const fillingDivsMarkpups = [1, 2, 3];
@@ -181,13 +210,14 @@ const paintingDetailsModal = document.querySelector(".painting-details-modal");
 masonryGallery.addEventListener("click", function (e) {
   const galleryImg = e.target.closest(".gallery-image");
   if (!galleryImg) return;
-  paintingDetailsModal.innerHTML = "";
+  // paintingDetailsModal.innerHTML = "";
 
   const id = Number(galleryImg.querySelector("img").dataset.id);
   const img = images.find((img) => img.id === id);
   const markup = getMarkupForDetailsView(img);
   paintingDetailsModal.insertAdjacentHTML("afterbegin", markup);
   paintingDetailsModal.classList.remove("hidden");
+  paintingDetailsModal.classList.remove("behind");
   navbar.classList.add("sticky-permanent");
 
   const paintingDetailsBackground = document.querySelector(
@@ -227,8 +257,14 @@ masonryGallery.addEventListener("click", function (e) {
       e.target.classList.contains("painting-details-container") ||
       e.target.closest(".nav")
     ) {
+      const paintingDetailsContainer = document.querySelector(
+        ".painting-details-container"
+      );
       paintingDetailsModal.classList.add("hidden");
       navbar.classList.remove("sticky-permanent");
+      this.setTimeout(() => {
+        paintingDetailsModal.classList.add("behind");
+      }, 300);
     }
   });
 });

@@ -1,0 +1,153 @@
+/* FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
+
+@media (max-width: 80em) {
+  .name {
+    font-size: 6.4rem;
+  }
+
+  .portfolio {
+    font-size: 4rem;
+  }
+  .container {
+    max-width: 95rem;
+  }
+  .grid--intro {
+    grid-template-columns: 55fr 45fr;
+    gap: rem;
+  }
+
+  .intro-gallery {
+    padding: 0;
+  }
+}
+
+@media (max-width: 64em) {
+  .name {
+    font-size: 5.2rem;
+  }
+
+  .portfolio {
+    font-size: 3rem;
+  }
+
+  .menu-items {
+    gap: 2rem;
+  }
+
+  .container {
+    max-width: 74rem;
+  }
+
+  .grid--intro {
+    grid-template-columns: 75fr 25fr;
+    /* gap: rem; */
+  }
+
+  .intro-gallery.grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .intro-gallery-item {
+  }
+
+  .intro-header {
+    font-size: 6rem;
+  }
+
+  .intro-text {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 52em) {
+  .name {
+    font-size: 4.4rem;
+  }
+  .portfolio {
+    font-size: 2rem;
+  }
+
+  /* .menu-items {
+    gap: 1.6rem;
+  } */
+
+  .nav {
+    background-color: #ffffff00;
+    box-shadow: none;
+  }
+
+  .logo {
+    position: fixed;
+    top: 4.4rem;
+    left: 4.4rem;
+  }
+
+  .main-menu {
+    background-color: rgba(255, 255, 255, 0.842);
+    backdrop-filter: blur(9px);
+    height: 100%;
+    z-index: 10;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translate(100%);
+    transition: all 0.5s ease-out;
+  }
+
+  .btn-mobile-open {
+    display: block;
+    position: fixed;
+  }
+
+  .btn-mobile-close {
+    position: absolute;
+    display: block;
+    top: 6.4rem;
+    right: 6.4rem;
+  }
+
+  .menu-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    gap: 3rem;
+  }
+
+  .nav-link:link,
+  .nav-link:visited {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .container {
+    max-width: 55rem;
+  }
+
+  .grid.grid--intro {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-gallery.grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 40em) {
+  .name {
+    font-size: 2rem;
+  }
+}

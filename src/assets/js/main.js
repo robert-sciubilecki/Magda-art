@@ -1,9 +1,13 @@
 const navbar = document.querySelector(".nav");
 const header = document.querySelector(".main-header");
+const mobileOpenBtn = document.querySelector(".btn-mobile-open");
+const mobileCloseBtn = document.querySelector(".btn-mobile-close");
+const mainMenu = document.querySelector(".main-menu");
 
 // Create an Intersection Observer
 const observer = new IntersectionObserver(
   (entries, observer) => {
+    if (window.getComputedStyle(mobileOpenBtn).display === "block") return;
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         navbar.classList.add("hidden");
@@ -42,7 +46,21 @@ navbar.addEventListener("click", (e) => {
     targetId === "section-contact" || targetId === "section-gallery"
       ? "center"
       : "start";
-  console.log(blockAlign);
 
   targetSection.scrollIntoView({ behavior: "smooth", block: blockAlign });
+});
+
+mobileOpenBtn.addEventListener("click", function () {
+  console.log("asdf");
+
+  mainMenu.classList.add("show-mobile-menu");
+});
+
+mainMenu.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("nav-link") ||
+    e.target.closest(".btn-mobile-close")
+  ) {
+    mainMenu.classList.remove("show-mobile-menu");
+  }
 });

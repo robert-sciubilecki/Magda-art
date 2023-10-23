@@ -98,7 +98,7 @@ export function getMarkupForDetailsView(image) {
           <img class='painting-details-close-icon' src="../icons/close-outline.svg">
         </div>
         
-        <div class="loading-spinner">
+        <div class="loading-spinner details-spinner">
           <img src="../icons/reload-circle-outline.svg" alt="Loading spinner" />
         </div>
       </div>
@@ -106,13 +106,3 @@ export function getMarkupForDetailsView(image) {
   `;
   return markup;
 }
-
-`<div class="painting-details">
-          <h3 class="painting-details-name"></h3>
-          <img
-            class="painting-details-img"
-            src=""
-            alt=" closeup"
-          />
-          <p class="painting-details-size">Size = 120cm x 80cm</p>
-        </div>`;
