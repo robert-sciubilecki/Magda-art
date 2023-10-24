@@ -52,10 +52,10 @@ body {
   transition: 1s;
 }
 
-.nav.sticky {
+/* .nav.sticky {
   background-color: #40404070;
   box-shadow: 0 0.4rem 0.4rem rgba(48, 48, 48, 0.514);
-}
+} */
 
 .logo {
   display: flex;
@@ -88,6 +88,11 @@ body {
   align-items: center;
 }
 
+.main-menu.show-mobile-menu {
+  transform: translate(0);
+  z-index: 10;
+}
+
 .menu-items {
   display: flex;
   list-style: none;
@@ -106,6 +111,37 @@ body {
 .nav-link:active {
   color: white;
   cursor: pointer;
+}
+
+.btn-mobile {
+  display: none;
+  width: 6.6rem;
+  border: none;
+  top: 4.4rem;
+  right: 4rem;
+
+  z-index: 200;
+  border-radius: 9px;
+}
+
+.btn-mobile-open {
+  background-color: rgba(37, 35, 35, 0.534);
+  border: 1px solid #dadadaad;
+}
+
+.btn-mobile-icon {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(145deg)
+    brightness(111%) contrast(111%);
+}
+
+.btn-mobile-close {
+  background-color: #ffffff00;
+  display: none;
+}
+
+.btn-mobile-close-icon {
+  filter: invert(5%) sepia(0%) saturate(2011%) hue-rotate(140deg)
+    brightness(89%) contrast(82%);
 }
 
 /* ****************************************************
@@ -127,7 +163,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%; */
-  margin-top: 9.8rem;
+  margin-top: 14rem;
   position: relative;
 
   /* overflow: scroll; */
@@ -579,3 +615,228 @@ footer {
 /* /////////////////////////////////////////
 //////////// FOOTER END ////////////////////
 ///////////////////////////////////////// */
+
+/* /////////////////////////////////////////
+//////////// MEDIA QUERIES //////////////////
+///////////////////////////////////////// */
+
+@media (max-width: 80em) {
+  .cta.container {
+    grid-template-columns: 48fr 42fr;
+  }
+
+  .cta-heading {
+    margin-bottom: 8rem;
+  }
+
+  .contact-form-container {
+    padding: 3rem;
+  }
+  .container {
+    max-width: 95rem;
+  }
+
+  .masonry-grid {
+    margin-bottom: 8rem;
+  }
+}
+
+@media (max-width: 64em) {
+  .menu-items {
+    gap: 2rem;
+  }
+
+  .intro-header {
+    width: 100%;
+    height: 100%;
+    transition: 0.2s;
+  }
+
+  .gallery-link:link,
+  .gallery-link:visited {
+    font-size: 6rem;
+  }
+
+  .cta-heading {
+    font-size: 4rem;
+    padding: 0 14rem;
+  }
+
+  .contact-photo {
+    display: none;
+  }
+
+  .cta.container {
+    grid-template-columns: 65fr 25fr;
+    box-shadow: 0 0 2rem 1rem #0000001a;
+  }
+
+  .contact-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    max-width: 74rem;
+  }
+}
+
+@media (max-width: 52em) {
+  .logo {
+    position: absolute;
+    top: 4.4rem;
+    left: 4.4rem;
+  }
+
+  .main-menu {
+    background-color: rgba(255, 255, 255, 0.678);
+    backdrop-filter: blur(9px);
+    height: 100%;
+    z-index: -10;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translate(100%);
+    transition: all 0.5s ease-out;
+  }
+
+  .nav {
+    position: absolute;
+    background-color: #00000000;
+    box-shadow: none;
+  }
+
+  .btn-mobile-open {
+    display: block;
+    position: fixed;
+  }
+
+  .btn-mobile-close {
+    position: absolute;
+    display: block;
+    top: 4.4rem;
+    right: 4.4rem;
+  }
+
+  .menu-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    gap: 3rem;
+  }
+
+  .nav-link:link,
+  .nav-link:visited {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .contact-form-container {
+    padding: 2rem 2rem 6rem;
+  }
+
+  .masonry-grid {
+    margin-bottom: 4rem;
+  }
+
+  .cta-heading {
+    font-size: 4rem;
+    padding: 0 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .cta.container {
+    display: flex;
+  }
+
+  .container {
+    max-width: 55rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 40em) {
+  .logo {
+    height: 6rem;
+    width: 6rem;
+    top: 1.6rem;
+  }
+
+  .logo-img {
+    width: 6rem;
+  }
+
+  .btn-mobile {
+    width: 5rem;
+    top: 1.6rem;
+  }
+
+  .masonry-gallery {
+    margin-top: 8.6rem;
+  }
+
+  .margin-bottom-xl {
+    margin-bottom: 3rem;
+  }
+
+  .cta-heading {
+    font-size: 3rem;
+    padding: 0 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .cta.container {
+    flex-direction: column;
+    box-shadow: none;
+  }
+
+  .contact-paintings {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-mosaic-item {
+    flex: 1;
+  }
+
+  .contact-form {
+    gap: 0.6;
+  }
+
+  .container {
+    max-width: 55rem;
+  }
+}
+
+@media (max-width: 24em) {
+  .nav-link {
+    font-size: 3.6rem;
+  }
+
+  .logo {
+    height: 4.4rem;
+    width: 4.4rem;
+  }
+
+  .logo-img {
+    width: 4.4rem;
+  }
+
+  .btn-mobile {
+    width: 4.4rem;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* ////////////////////////////////////
+//////////////////////////////////// */

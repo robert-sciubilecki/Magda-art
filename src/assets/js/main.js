@@ -51,28 +51,33 @@ navbar.addEventListener("click", (e) => {
 });
 
 mobileOpenBtn.addEventListener("click", function () {
-  console.log("asdf");
-
   mainMenu.classList.add("show-mobile-menu");
+  mobileOpenBtn.style.display = "none";
 });
 
 mainMenu.addEventListener("click", (e) => {
+  if (!mainMenu.classList.contains("show-mobile-menu")) return;
   if (
     e.target.classList.contains("nav-link") ||
     e.target.closest(".btn-mobile-close")
   ) {
     mainMenu.classList.remove("show-mobile-menu");
+    mobileOpenBtn.style.display = "block";
   }
 });
 
 let previousScreenSize = window.innerWidth;
 window.addEventListener("resize", function (e) {
-  console.log(window.innerWidth);
-
   if (window.innerWidth <= 832 && previousScreenSize > 832) {
     navbar.classList.remove("sticky");
+    mobileOpenBtn.style.display = "block";
+    mainMenu.style.display = "none";
+    this.setTimeout(() => {
+      mainMenu.style.display = "flex";
+    }, 500);
   } else if (window.innerWidth > 832 && previousScreenSize <= 832) {
     navbar.classList.add("sticky");
+    mobileOpenBtn.style.display = "none";
   }
   previousScreenSize = window.innerWidth;
 });

@@ -156,10 +156,14 @@ body {
   border: none;
   top: 4.4rem;
   right: 4rem;
-  background-color: rgba(37, 35, 35, 0.534);
-  border: 1px solid #dadadaad;
+
   z-index: 200;
   border-radius: 9px;
+}
+
+.btn-mobile-open {
+  background-color: rgba(37, 35, 35, 0.534);
+  border: 1px solid #dadadaad;
 }
 
 .btn-mobile-icon {
@@ -168,6 +172,7 @@ body {
 }
 
 .btn-mobile-close {
+  background-color: #ffffff00;
   display: none;
 }
 
@@ -476,7 +481,8 @@ body {
 }
 
 .gallery-link-background {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(4px);
   width: 100%;
   padding: 2.4rem;
 }

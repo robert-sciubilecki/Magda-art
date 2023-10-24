@@ -8,57 +8,13 @@ import { titleFormatter } from "./markups";
 
 const images = getImages();
 
+const contactLink = document.querySelector(".contact-link");
+const navbar = document.querySelector(".nav");
+const header = document.querySelector(".main-header");
+const mobileOpenBtn = document.querySelector(".btn-mobile-open");
+const mobileCloseBtn = document.querySelector(".btn-mobile-close");
+const mainMenu = document.querySelector(".main-menu");
 const masonryGrid = document.querySelector(".masonry-grid");
-
-const lowercaseWords = [
-  "a",
-  "an",
-  "and",
-  "as",
-  "at",
-  "but",
-  "by",
-  "down",
-  "for",
-  "from",
-  "if",
-  "in",
-  "into",
-  "like",
-  "near",
-  "nor",
-  "of",
-  "off",
-  "on",
-  "once",
-  "onto",
-  "or",
-  "over",
-  "past",
-  "so",
-  "than",
-  "that",
-  "the",
-  "to",
-  "upon",
-  "when",
-  "with",
-  "yet",
-];
-
-// function titleFormatter(title) {
-//   const titleToArr = title.split(" ").map((word, index) => {
-//     if (
-//       index === 0 ||
-//       index === title.length - 1 ||
-//       !lowercaseWords.includes(word.toLowerCase())
-//     ) {
-//       return word.charAt(0).toUpperCase() + word.slice(1);
-//     }
-//     return word.toLowerCase();
-//   });
-//   return titleToArr.join(" ");
-// }
 
 function createMasonryGrid(columns, images) {
   // this element is cleared and then populated with div.columns with div.images
@@ -107,8 +63,6 @@ function createMasonryGrid(columns, images) {
       spinner.classList.remove("hidden");
     }, 2000);
     spinner.appendChild(spinnerImg);
-
-    console.log(spinner);
 
     imgDiv.appendChild(spinner);
 
@@ -163,7 +117,37 @@ function fillTheRemainingSpace(columnHeights) {
   });
 }
 
-createMasonryGrid(4, images);
+if (window.innerWidth < 600) {
+  createMasonryGrid(1, images);
+} else if (window.innerWidth >= 600 && window.innerWidth < 1000) {
+  createMasonryGrid(2, images);
+} else {
+  createMasonryGrid(4, images);
+}
+
+let previousScreenSize = window.innerWidth;
+window.addEventListener("resize", function (e) {
+  // imgIndex = 0;
+
+  if (window.innerWidth < 600 && previousScreenSize >= 600) {
+    createMasonryGrid(1, images);
+  } else if (
+    window.innerWidth >= 600 &&
+    window.innerWidth < 1000 &&
+    (previousScreenSize < 600 || previousScreenSize >= 1000)
+  ) {
+    createMasonryGrid(2, images);
+  } else if (
+    window.innerWidth >= 1000 &&
+    window.innerWidth < 1400 &&
+    (previousScreenSize < 1000 || previousScreenSize >= 1400)
+  ) {
+    createMasonryGrid(3, images);
+  } else if (window.innerWidth >= 1400 && previousScreenSize < 1400) {
+    createMasonryGrid(4, images);
+  }
+  previousScreenSize = window.innerWidth;
+});
 
 masonryGrid.addEventListener("mouseover", function (e) {
   if (
@@ -181,24 +165,6 @@ masonryGrid.addEventListener("mouseout", function (e) {
 });
 
 // FOR RESPONSIVENESS, NOT SURE ABOUT THE FUTURE OF IT
-
-let previousScreenSize = window.innerWidth;
-window.addEventListener("resize", function (e) {
-  // imgIndex = 0;
-
-  if (window.innerWidth < 600 && previousScreenSize >= 600) {
-    createMasonryGrid(1, images);
-  } else if (
-    window.innerWidth >= 600 &&
-    window.innerWidth < 1000 &&
-    (previousScreenSize < 600 || previousScreenSize >= 1000)
-  ) {
-    createMasonryGrid(2, images);
-  } else if (window.innerWidth >= 1000 && previousScreenSize < 1000) {
-    createMasonryGrid(4, images);
-  }
-  previousScreenSize = window.innerWidth;
-});
 
 // ******************************************************
 // -----DETAILS VIEW WITH LOADING SPINNER---------------
@@ -251,6 +217,8 @@ masonryGallery.addEventListener("click", function (e) {
     }, 100);
   };
 
+  mobileOpenBtn.style.display = "none";
+
   window.addEventListener("click", function (e) {
     if (
       e.target.classList.contains("painting-details-close-icon") ||
@@ -265,6 +233,7 @@ masonryGallery.addEventListener("click", function (e) {
       this.setTimeout(() => {
         paintingDetailsModal.classList.add("behind");
       }, 300);
+      mobileOpenBtn.style.display = "block";
     }
   });
 });
@@ -276,10 +245,6 @@ masonryGallery.addEventListener("click", function (e) {
 // ****************************************************
 // -------------MASONRY GRID LAYOUT END----------------
 // ****************************************************
-
-const contactLink = document.querySelector(".contact-link");
-const navbar = document.querySelector(".nav");
-const header = document.querySelector(".main-header");
 
 contactLink.addEventListener("click", (e) => {
   e.preventDefault();
@@ -312,3 +277,31 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(header);
+
+mobileOpenBtn.addEventListener("click", function () {
+  mainMenu.classList.add("show-mobile-menu");
+  mobileOpenBtn.style.display = "none";
+});
+
+mainMenu.addEventListener("click", (e) => {
+  if (!mainMenu.classList.contains("show-mobile-menu")) return;
+  if (
+    e.target.classList.contains("nav-link") ||
+    e.target.closest(".btn-mobile-close")
+  ) {
+    mainMenu.classList.remove("show-mobile-menu");
+    mobileOpenBtn.style.display = "block";
+  }
+});
+
+window.addEventListener("resize", function (e) {
+  if (window.innerWidth <= 832) {
+    mobileOpenBtn.style.display = "block";
+    mainMenu.style.display = "none";
+    this.setTimeout(() => {
+      mainMenu.style.display = "flex";
+    }, 500);
+  } else if (window.innerWidth > 832) {
+    mobileOpenBtn.style.display = "none";
+  }
+});
