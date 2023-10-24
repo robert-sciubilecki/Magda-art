@@ -18,11 +18,7 @@ SPACING SYSTEM (px)
   }
   .grid--intro {
     grid-template-columns: 55fr 45fr;
-    gap: rem;
-  }
-
-  .intro-header {
-    font-size: 5rem;
+    /* gap: rem; */
   }
 
   .intro-text {
@@ -96,7 +92,7 @@ SPACING SYSTEM (px)
   }
 
   .intro-header {
-    font-size: 6rem;
+    font-size: 4.4rem;
   }
 
   .intro-text {
@@ -117,6 +113,7 @@ SPACING SYSTEM (px)
 
   .container.bio {
     grid-template-columns: 30fr 70fr;
+    box-shadow: 0 0 2rem 1rem #0000001a;
   }
 
   .bio-content {
@@ -132,6 +129,11 @@ SPACING SYSTEM (px)
   .gallery-link:visited {
     font-size: 6rem;
   }
+
+  .visualisation-container {
+    box-shadow: 0 0 2rem 1rem #0000001a;
+  }
+
   .visualisation-text p {
     font-size: 1.6rem;
   }
@@ -147,6 +149,7 @@ SPACING SYSTEM (px)
 
   .cta.container {
     grid-template-columns: 65fr 25fr;
+    box-shadow: 0 0 2rem 1rem #0000001a;
   }
 
   .contact-mosaic {
@@ -155,6 +158,9 @@ SPACING SYSTEM (px)
 }
 
 @media (max-width: 52em) {
+  .grid {
+    justify-content: center;
+  }
   .name {
     font-size: 4.4rem;
   }
@@ -255,6 +261,7 @@ SPACING SYSTEM (px)
   .paralax-1 {
     background-position: 40% calc(50% - 20px);
   }
+
   .container.bio {
     grid-template-columns: 1fr;
     box-shadow: none;
@@ -293,6 +300,10 @@ SPACING SYSTEM (px)
     text-align: center;
   }
 
+  .contact-form-container {
+    padding: 2rem 2rem 6rem;
+  }
+
   .cta-heading {
     font-size: 4rem;
     padding: 0 6rem;
@@ -305,6 +316,27 @@ SPACING SYSTEM (px)
 }
 
 @media (max-width: 40em) {
+  .container {
+    max-width: 100%;
+  }
+
+  .logo {
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .logo-img {
+    width: 6rem;
+  }
+
+  .btn-mobile {
+    width: 5rem;
+  }
+
+  .intro-header {
+    font-size: 4rem;
+  }
+
   .name {
     /* font-size: 2rem; */
     text-wrap: wrap;
@@ -318,6 +350,10 @@ SPACING SYSTEM (px)
 
   .intro-text {
     font-size: 1.8rem;
+  }
+
+  .intro-content {
+    padding: 0px 2rem 0 2rem;
   }
 
   .section-bio {
@@ -347,6 +383,13 @@ SPACING SYSTEM (px)
     padding: 3rem;
   }
 
+  .bio-text {
+    padding: 1.4rem;
+  }
+  .bio-name {
+    text-wrap: wrap;
+  }
+
   .bio-gallery {
     padding: 1rem;
   }
@@ -368,6 +411,7 @@ SPACING SYSTEM (px)
 
   .visualisation-container {
     border-radius: 0;
+    box-shadow: none;
   }
 
   .cta-heading {
@@ -378,6 +422,7 @@ SPACING SYSTEM (px)
 
   .cta.container {
     flex-direction: column;
+    box-shadow: none;
   }
 
   .contact-paintings {
@@ -389,10 +434,34 @@ SPACING SYSTEM (px)
     flex: 1;
   }
 
-  .bio-content {
-    padding: 0;
+  .contact-form {
+    gap: 0.6;
   }
-  .bio-name {
-    text-wrap: wrap;
+}
+
+@media (max-width: 24em) {
+  .name {
+    font-size: 3.4rem;
+  }
+
+  .logo {
+    height: 4.4rem;
+    width: 4.4rem;
+  }
+
+  .logo-img {
+    width: 4.4rem;
+  }
+
+  .btn-mobile {
+    width: 4.4rem;
+  }
+
+  .intro-gallery {
+    max-width: 100%;
+    padding: 2rem;
+  }
+  .intro-gallery.grid {
+    gap: 1rem;
   }
 }

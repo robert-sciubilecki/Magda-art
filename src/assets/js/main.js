@@ -26,7 +26,7 @@ const observer = new IntersectionObserver(
   },
   {
     root: null,
-    rootMargin: "0px",
+    rootMargin: "200px",
     threshold: 0,
   }
 );
@@ -63,4 +63,16 @@ mainMenu.addEventListener("click", (e) => {
   ) {
     mainMenu.classList.remove("show-mobile-menu");
   }
+});
+
+let previousScreenSize = window.innerWidth;
+window.addEventListener("resize", function (e) {
+  console.log(window.innerWidth);
+
+  if (window.innerWidth <= 832 && previousScreenSize > 832) {
+    navbar.classList.remove("sticky");
+  } else if (window.innerWidth > 832 && previousScreenSize <= 832) {
+    navbar.classList.add("sticky");
+  }
+  previousScreenSize = window.innerWidth;
 });
