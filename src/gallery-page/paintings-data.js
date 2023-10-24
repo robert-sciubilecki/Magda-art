@@ -9,8 +9,9 @@ const images = [
     fileName: "autumn-sunrise.webp",
     height: 713,
     width: 960,
+    heightCm: 60,
+    widthCm: 80,
     id: 0,
-    description: "This is sunrise in autum. Pretty.",
   },
   {
     title: "bern",
@@ -18,6 +19,8 @@ const images = [
     fileName: "bern.webp",
     height: 482,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 1,
   },
   {
@@ -26,6 +29,8 @@ const images = [
     fileName: "bologna.webp",
     height: 634,
     width: 960,
+    heightCm: 80,
+    widthCm: 120,
     id: 2,
   },
   {
@@ -34,6 +39,8 @@ const images = [
     fileName: "breslau.webp",
     height: 776,
     width: 960,
+    heightCm: 100,
+    widthCm: 80,
     id: 3,
   },
   {
@@ -42,6 +49,8 @@ const images = [
     fileName: "center-of-the-earth.webp",
     height: 960,
     width: 960,
+    heightCm: 120,
+    widthCm: 120,
     id: 4,
   },
   {
@@ -50,6 +59,8 @@ const images = [
     fileName: "cinque-terre.webp",
     height: 1441,
     width: 960,
+    heightCm: 120,
+    widthCm: 80,
     id: 5,
   },
   {
@@ -58,6 +69,8 @@ const images = [
     fileName: "copper.webp",
     height: 751,
     width: 960,
+    heightCm: 30,
+    widthCm: 40,
     id: 6,
   },
   {
@@ -66,6 +79,8 @@ const images = [
     fileName: "early-spring.webp",
     height: 784,
     width: 960,
+    heightCm: 50,
+    widthCm: 60,
     id: 7,
   },
   {
@@ -74,6 +89,8 @@ const images = [
     fileName: "enough-is-enough.webp",
     height: 796,
     width: 960,
+    heightCm: 50,
+    widthCm: 60,
     id: 8,
   },
   {
@@ -82,6 +99,8 @@ const images = [
     fileName: "forest.webp",
     height: 552,
     width: 960,
+    heightCm: 80,
+    widthCm: 120,
     id: 9,
   },
   {
@@ -90,6 +109,8 @@ const images = [
     fileName: "golden-landscape.webp",
     height: 488,
     width: 960,
+    heightCm: 70,
+    widthCm: 120,
     id: 10,
   },
   {
@@ -98,6 +119,8 @@ const images = [
     fileName: "good-as-hell.webp",
     height: 335,
     width: 960,
+    heightCm: 60,
+    widthCm: 200,
     id: 11,
   },
   {
@@ -106,6 +129,8 @@ const images = [
     fileName: "grue-and-bleen.webp",
     height: 314,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 12,
   },
   {
@@ -114,6 +139,8 @@ const images = [
     fileName: "honey-field.webp",
     height: 660,
     width: 960,
+    heightCm: 70,
+    widthCm: 100,
     id: 13,
   },
   {
@@ -122,6 +149,8 @@ const images = [
     fileName: "infra-black.webp",
     height: 482,
     width: 960,
+    heightCm: 80,
+    widthCm: 120,
     id: 14,
   },
   {
@@ -130,6 +159,8 @@ const images = [
     fileName: "infra-white.webp",
     height: 326,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 15,
   },
   {
@@ -138,6 +169,8 @@ const images = [
     fileName: "living-coral.webp",
     height: 324,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 16,
   },
   {
@@ -146,6 +179,8 @@ const images = [
     fileName: "lonely-island.webp",
     height: 768,
     width: 960,
+    heightCm: 30,
+    widthCm: 40,
     id: 17,
   },
   {
@@ -154,6 +189,8 @@ const images = [
     fileName: "look-up-for-answers.webp",
     height: 545,
     width: 960,
+    heightCm: 70,
+    widthCm: 120,
     id: 18,
   },
   {
@@ -162,6 +199,8 @@ const images = [
     fileName: "melting-landscapes.webp",
     height: 788,
     width: 960,
+    heightCm: 30,
+    widthCm: 40,
     id: 19,
   },
   {
@@ -170,6 +209,8 @@ const images = [
     fileName: "murmuration.webp",
     height: 301,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 20,
   },
   {
@@ -178,6 +219,8 @@ const images = [
     fileName: "out-of-the-blue.webp",
     height: 791,
     width: 960,
+    heightCm: 50,
+    widthCm: 60,
     id: 21,
   },
   {
@@ -186,6 +229,8 @@ const images = [
     fileName: "pearly-sky.webp",
     height: 960,
     width: 960,
+    heightCm: 100,
+    widthCm: 100,
     id: 22,
   },
   {
@@ -194,6 +239,8 @@ const images = [
     fileName: "pink-sky.webp",
     height: 482,
     width: 960,
+    heightCm: 60,
+    widthCm: 120,
     id: 23,
   },
   {
@@ -202,6 +249,8 @@ const images = [
     fileName: "poppies-field.webp",
     height: 321,
     width: 960,
+    heightCm: 80,
+    widthCm: 240,
     id: 24,
   },
   {
@@ -210,6 +259,8 @@ const images = [
     fileName: "second-skin.webp",
     height: 1090,
     width: 960,
+    heightCm: 120,
+    widthCm: 100,
     id: 25,
   },
   {
@@ -218,6 +269,8 @@ const images = [
     fileName: "space.webp",
     height: 804,
     width: 960,
+    heightCm: 100,
+    widthCm: 120,
     id: 26,
   },
   {
@@ -226,6 +279,8 @@ const images = [
     fileName: "sparkling-lake.webp",
     height: 398,
     width: 960,
+    heightCm: "N/A",
+    widthCm: "N/A",
     id: 27,
   },
   {
@@ -234,6 +289,8 @@ const images = [
     fileName: "spectrum-of-thoughts.webp",
     height: 960,
     width: 960,
+    heightCm: 120,
+    widthCm: 100,
     id: 28,
   },
   {
@@ -242,6 +299,8 @@ const images = [
     fileName: "subdominant.webp",
     height: 616,
     width: 960,
+    heightCm: 40,
+    widthCm: 60,
     id: 29,
   },
   {
@@ -250,6 +309,8 @@ const images = [
     fileName: "vespera-and-prima.webp",
     height: 333,
     width: 960,
+    heightCm: 60,
+    widthCm: 170,
     id: 30,
   },
   {
@@ -258,6 +319,8 @@ const images = [
     fileName: "vilnus.webp",
     height: 621,
     width: 960,
+    heightCm: 80,
+    widthCm: 100,
     id: 31,
   },
   {
@@ -266,6 +329,8 @@ const images = [
     fileName: "water-landscape.webp",
     height: 327,
     width: 960,
+    heightCm: 20,
+    widthCm: 70,
     id: 32,
   },
   {
@@ -274,6 +339,8 @@ const images = [
     fileName: "water-lilies.webp",
     height: 742,
     width: 960,
+    heightCm: "N/A",
+    widthCm: "N/A",
     id: 33,
   },
   {
@@ -282,6 +349,8 @@ const images = [
     fileName: "widawa-river.webp",
     height: 776,
     width: 960,
+    heightCm: 80,
+    widthCm: 120,
     id: 34,
   },
   {
@@ -290,6 +359,8 @@ const images = [
     fileName: "world-united.webp",
     height: 960,
     width: 960,
+    heightCm: 70,
+    widthCm: 70,
     id: 35,
   },
 ];

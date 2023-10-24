@@ -204,8 +204,9 @@ masonryGallery.addEventListener("click", function (e) {
   paintingNameEl.textContent = titleFormatter(img.title);
   const paintingSizeEl = document.createElement("p");
   paintingSizeEl.classList.add("painting-details-size");
-  paintingSizeEl.textContent = "Size = 120cm x 80cm";
-
+  paintingSizeEl.textContent = `Dimensions: ${
+    img.widthCm === "N/A" ? "N/A" : `${img.widthCm} cm x ${img.heightCm}cm`
+  }`;
   paintingImgEl.onload = function () {
     paintingDetailsEl.appendChild(paintingNameEl);
     paintingDetailsEl.appendChild(paintingImgEl);
@@ -232,6 +233,7 @@ masonryGallery.addEventListener("click", function (e) {
       navbar.classList.remove("sticky-permanent");
       this.setTimeout(() => {
         paintingDetailsModal.classList.add("behind");
+        paintingDetailsContainer.remove();
       }, 300);
       mobileOpenBtn.style.display = "block";
     }
@@ -296,7 +298,10 @@ mainMenu.addEventListener("click", (e) => {
 
 window.addEventListener("resize", function (e) {
   if (window.innerWidth <= 832) {
-    mobileOpenBtn.style.display = "block";
+    if (!document.querySelector(".painting-details-container")) {
+      mobileOpenBtn.style.display = "block";
+    }
+
     mainMenu.style.display = "none";
     this.setTimeout(() => {
       mainMenu.style.display = "flex";

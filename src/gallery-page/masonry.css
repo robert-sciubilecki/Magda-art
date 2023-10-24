@@ -639,6 +639,10 @@ footer {
   .masonry-grid {
     margin-bottom: 8rem;
   }
+
+  .painting-details {
+    padding: 0;
+  }
 }
 
 @media (max-width: 64em) {
@@ -746,6 +750,18 @@ footer {
     margin-bottom: 4rem;
   }
 
+  .painting-details-background {
+    padding: 0 1rem;
+  }
+
+  .painting-details-name {
+    font-size: 3rem;
+  }
+
+  .painting-details-size {
+    font-size: 1.8rem;
+  }
+
   .cta-heading {
     font-size: 4rem;
     padding: 0 6rem;
@@ -790,6 +806,10 @@ footer {
     font-size: 3rem;
     padding: 0 3rem;
     margin-bottom: 4rem;
+  }
+
+  .cta {
+    border-radius: 0;
   }
 
   .cta.container {
