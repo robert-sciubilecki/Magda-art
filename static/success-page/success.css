@@ -1,0 +1,31 @@
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../paintings/fullRes/infra-black.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.success-msg {
+  font-size: 5vw;
+  color: #dadada;
+}
+
+a {
+  font-size: 4vw;
+  text-decoration: none;
+  color: #dadada;
+}
+
+a:hover {
+  color: #2b2b2b;
+}
