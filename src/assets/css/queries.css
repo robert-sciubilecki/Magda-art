@@ -7,7 +7,7 @@ SPACING SYSTEM (px)
 
 @media (max-width: 80em) {
   .name {
-    font-size: 6.4rem;
+    font-size: 8.4rem;
   }
 
   .portfolio {
@@ -57,12 +57,20 @@ SPACING SYSTEM (px)
 }
 
 @media (max-width: 64em) {
+  .logo-img {
+    margin-bottom: 3.6rem;
+  }
+
   .name {
-    font-size: 5.2rem;
+    font-size: 7.4rem;
   }
 
   .portfolio {
     font-size: 3rem;
+  }
+
+  .nav {
+    padding: 1rem 2rem;
   }
 
   .menu-items {
@@ -161,8 +169,15 @@ SPACING SYSTEM (px)
   .grid {
     justify-content: center;
   }
+
+  .logo-img {
+    margin-bottom: 2rem;
+  }
+
   .name {
-    font-size: 4.4rem;
+    font-size: 7.4rem;
+    text-wrap: wrap;
+    text-align: center;
   }
   .portfolio {
     font-size: 2rem;
@@ -182,15 +197,15 @@ SPACING SYSTEM (px)
     box-shadow: none;
   }
 
-  .logo {
+  /* .logo {
     position: absolute;
     top: 4.4rem;
     left: 4.4rem;
-  }
+  } */
 
   .main-menu {
-    background-color: rgba(255, 255, 255, 0.678);
-    backdrop-filter: blur(9px);
+    background-color: rgba(233, 233, 233, 0.884);
+    backdrop-filter: blur(19px);
     height: 100%;
     z-index: -10;
     position: fixed;
@@ -206,6 +221,7 @@ SPACING SYSTEM (px)
   .btn-mobile-open {
     display: block;
     position: fixed;
+    cursor: pointer;
   }
 
   .btn-mobile-close {
@@ -213,6 +229,7 @@ SPACING SYSTEM (px)
     display: block;
     top: 4.4rem;
     right: 4.4rem;
+    cursor: pointer;
   }
 
   .menu-items {
@@ -231,6 +248,10 @@ SPACING SYSTEM (px)
     color: rgb(32, 32, 32);
     text-decoration: none;
     transition: all 0.3s;
+  }
+
+  .nav-link-home {
+    margin-right: 0;
   }
 
   .container {
@@ -313,6 +334,10 @@ SPACING SYSTEM (px)
   .cta.container {
     display: flex;
   }
+
+  .footer-info {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 40em) {
@@ -321,12 +346,10 @@ SPACING SYSTEM (px)
   }
 
   .logo {
-    height: 6rem;
-    width: 6rem;
   }
 
   .logo-img {
-    width: 6rem;
+    width: 14rem;
   }
 
   .btn-mobile {
@@ -338,10 +361,10 @@ SPACING SYSTEM (px)
   }
 
   .name {
-    /* font-size: 2rem; */
+    font-size: 6.2rem;
     text-wrap: wrap;
     text-align: center;
-    line-height: 1.6;
+    /* line-height: 1.6; */
   }
 
   .grid--intro {
@@ -448,13 +471,8 @@ SPACING SYSTEM (px)
     font-size: 3.6rem;
   }
 
-  .logo {
-    height: 4.4rem;
-    width: 4.4rem;
-  }
-
   .logo-img {
-    width: 4.4rem;
+    width: 9.8rem;
   }
 
   .btn-mobile {
@@ -467,5 +485,127 @@ SPACING SYSTEM (px)
   }
   .intro-gallery.grid {
     gap: 1rem;
+  }
+}
+
+/* //////////////////////////////////////// height media queries /////////////////////////////////////////*/
+
+@media (max-height: 35rem) {
+  .nav {
+    background-color: #ffffff00;
+    box-shadow: none;
+  }
+
+  .main-menu {
+    background-color: rgba(233, 233, 233, 0.884);
+    backdrop-filter: blur(19px);
+    height: 100%;
+    z-index: -10;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translate(100%);
+    transition: all 0.5s ease-out;
+  }
+
+  .btn-mobile {
+    width: 5rem;
+  }
+
+  .btn-mobile-open {
+    display: block;
+    position: fixed;
+    cursor: pointer;
+  }
+
+  .btn-mobile-close {
+    position: absolute;
+    display: block;
+    top: 4.4rem;
+    right: 4.4rem;
+    cursor: pointer;
+  }
+
+  .menu-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.4rem;
+    gap: 3rem;
+  }
+
+  .nav-link:link,
+  .nav-link:visited {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .nav-link-home {
+    margin-right: 0;
+  }
+
+  .header-name {
+    gap: 2rem;
+  }
+  .logo-img {
+    width: 16rem;
+    margin-bottom: 0;
+  }
+  .name {
+    font-size: 7.4rem;
+  }
+
+  .paralax {
+    height: 70vh;
+  }
+}
+
+@media (max-height: 35rem) and (max-width: 52rem) {
+  .header-name {
+    gap: 1rem;
+  }
+  .logo-img {
+    width: 10rem;
+    margin-bottom: 0;
+  }
+  .name {
+    font-size: 5.4rem;
+  }
+
+  .main-menu {
+    padding: 3rem;
+  }
+
+  .menu-items {
+    gap: 0;
+  }
+
+  .nav-link {
+    font-size: 3rem;
+  }
+}
+
+@media (max-height: 30rem) {
+  .logo-img {
+    width: 10rem;
+  }
+
+  .name {
+    font-size: 4.4rem;
+  }
+
+  .portfolio {
+    font-size: 2.4rem;
+  }
+
+  .menu-items {
+    gap: 0rem;
   }
 }

@@ -75,7 +75,11 @@ window.addEventListener("resize", function (e) {
     this.setTimeout(() => {
       mainMenu.style.display = "flex";
     }, 500);
-  } else if (window.innerWidth > 832 && previousScreenSize <= 832) {
+  } else if (
+    window.innerWidth > 832 &&
+    previousScreenSize <= 832 &&
+    window.innerHeight > 640
+  ) {
     navbar.classList.add("sticky");
     mobileOpenBtn.style.display = "none";
   }

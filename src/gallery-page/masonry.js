@@ -15,6 +15,7 @@ const mobileOpenBtn = document.querySelector(".btn-mobile-open");
 const mobileCloseBtn = document.querySelector(".btn-mobile-close");
 const mainMenu = document.querySelector(".main-menu");
 const masonryGrid = document.querySelector(".masonry-grid");
+const logoImg = document.querySelector(".logo");
 
 function createMasonryGrid(columns, images) {
   // this element is cleared and then populated with div.columns with div.images
@@ -184,7 +185,7 @@ masonryGallery.addEventListener("click", function (e) {
   paintingDetailsModal.insertAdjacentHTML("afterbegin", markup);
   paintingDetailsModal.classList.remove("hidden");
   paintingDetailsModal.classList.remove("behind");
-  navbar.classList.add("sticky-permanent");
+  logoImg.classList.add("logo-small");
 
   const paintingDetailsBackground = document.querySelector(
     ".painting-details-background"
@@ -230,12 +231,14 @@ masonryGallery.addEventListener("click", function (e) {
         ".painting-details-container"
       );
       paintingDetailsModal.classList.add("hidden");
-      navbar.classList.remove("sticky-permanent");
+      logoImg.classList.remove("logo-small");
       this.setTimeout(() => {
         paintingDetailsModal.classList.add("behind");
         paintingDetailsContainer.remove();
       }, 300);
-      mobileOpenBtn.style.display = "block";
+      if (window.innerWidth <= 832) {
+        mobileOpenBtn.style.display = "block";
+      }
     }
   });
 });
@@ -262,11 +265,11 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         setTimeout(() => {
-          navbar.classList.add("sticky");
+          logoImg.classList.add("logo-small");
         }, 200);
       } else {
         setTimeout(() => {
-          navbar.classList.remove("sticky");
+          logoImg.classList.remove("logo-small");
         }, 200);
       }
     });

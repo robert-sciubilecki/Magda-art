@@ -107,22 +107,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8rem;
-  width: 8rem;
-  background-color: var(--medium-grey);
   border-radius: 4px;
 }
 
 .logo-img {
-  width: 8.6rem;
-  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(145deg)
-    brightness(111%) contrast(111%);
+  width: 20rem;
+  margin-bottom: 7.4rem;
+  border-radius: 4px;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 255, 255, 0.377);
 }
 
 .main-menu {
-  align-self: center;
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .main-menu.show-mobile-menu {
@@ -133,8 +132,10 @@ body {
 .menu-items {
   display: flex;
   list-style: none;
+  width: 100%;
   gap: 3.2rem;
   font-size: 2rem;
+  justify-content: flex-end;
 }
 
 .nav-link:link,
@@ -150,6 +151,11 @@ body {
   cursor: pointer;
 }
 
+.nav-link-home {
+  margin-right: auto;
+  justify-self: start;
+}
+
 .btn-mobile {
   display: none;
   width: 6.6rem;
@@ -162,8 +168,8 @@ body {
 }
 
 .btn-mobile-open {
-  background-color: rgba(37, 35, 35, 0.534);
-  border: 1px solid #dadadaad;
+  background-color: rgba(37, 35, 35, 0.404);
+  /* border: 1px solid #dadadaad; */
 }
 
 .btn-mobile-icon {
@@ -223,8 +229,9 @@ body {
 }
 
 .name {
-  font-weight: 400;
-  font-size: 7.6rem;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 9.6rem;
 }
 
 .portfolio {
@@ -705,6 +712,10 @@ footer {
   font-size: 1.2rem;
   text-align: right;
   color: var(--primary-color-tint);
+}
+
+footer .logo-img {
+  width: 8rem;
 }
 
 /* /////////////////////////////////////////
