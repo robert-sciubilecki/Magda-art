@@ -206,7 +206,7 @@ masonryGallery.addEventListener("click", function (e) {
   const paintingSizeEl = document.createElement("p");
   paintingSizeEl.classList.add("painting-details-size");
   paintingSizeEl.textContent = `Dimensions: ${
-    img.widthCm === "N/A" ? "N/A" : `${img.widthCm} cm x ${img.heightCm}cm`
+    img.widthCm === "N/A" ? "N/A" : `${img.heightCm} cm x ${img.widthCm}cm`
   }`;
   paintingImgEl.onload = function () {
     paintingDetailsEl.appendChild(paintingNameEl);

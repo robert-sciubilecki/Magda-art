@@ -8,20 +8,20 @@ export const markups = {
     <div class="social-container">
       <ul class="social-list">
         <li>
-          <a href="https://www.instagram.com"
-            ><img
+          <a href="https://www.instagram.com/eye_candy_art_acrylic/" target="_blank">
+            <img
               class="social-icon"
               src="../icons/logo-instagram.svg"
-              alt=""
-          /></a>
+              alt=""/>
+          </a>
         </li>
         <li>
-          <a href="https://www.facebook.com"
-            ><img
+          <a href="https://www.facebook.com/eyecandya" target="_blank">
+            <img
               class="social-icon"
               src="../icons/logo-facebook.svg"
-              alt=""
-          /></a>
+              alt=""/>
+          </a>
         </li>
       </ul>
     </div>
@@ -29,7 +29,7 @@ export const markups = {
 
   2: `
     <div class='filler-link'>
-      <a class='buy-painting-filler' href='index.html'>Buy a Painting</a>
+      <p class='buy-painting-filler'>Have a nice day! ;)</p>
     </div>
   `,
 };
