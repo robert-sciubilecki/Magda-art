@@ -636,12 +636,22 @@ SPACING SYSTEM (px)
   .cta.container {
   }
 
+  .contact-mosaic {
+    grid-template-columns: 1fr;
+  }
+
   .contact-mosaic-item:last-child {
     display: none;
   }
 
   .contact-photo {
     display: none;
+  }
+}
+
+@media (max-height: 35rem) and (max-width: 90rem) {
+  .cta.container {
+    grid-template-columns: 74fr 32fr;
   }
 }
 

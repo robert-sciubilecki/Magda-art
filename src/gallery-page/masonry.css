@@ -1013,12 +1013,23 @@ footer {
   .name {
     font-size: 7.4rem;
   }
+
+  .contact-mosaic {
+    grid-template-columns: 1fr;
+  }
+
   .contact-mosaic-item:last-child {
     display: none;
   }
 
   .contact-photo {
     display: none;
+  }
+}
+
+@media (max-height: 35rem) and (max-width: 90rem) {
+  .cta.container {
+    grid-template-columns: 74fr 32fr;
   }
 }
 
