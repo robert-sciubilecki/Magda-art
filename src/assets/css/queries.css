@@ -162,6 +162,7 @@ SPACING SYSTEM (px)
 
   .contact-mosaic {
     grid-template-columns: 1fr;
+    align-items: center;
   }
 }
 
@@ -332,11 +333,23 @@ SPACING SYSTEM (px)
   }
 
   .cta.container {
-    display: flex;
+    grid-template-columns: 57fr 43fr;
+  }
+
+  .contact-form-container {
+    padding: 1rem;
+  }
+
+  .contact-heading {
+    font-size: 2.8rem;
   }
 
   .footer-info {
     font-size: 1rem;
+  }
+
+  .contact-mosaic-item:last-child {
+    display: none;
   }
 }
 
@@ -444,6 +457,7 @@ SPACING SYSTEM (px)
   }
 
   .cta.container {
+    display: flex;
     flex-direction: column;
     box-shadow: none;
   }
@@ -459,6 +473,10 @@ SPACING SYSTEM (px)
 
   .contact-form {
     gap: 0.6;
+  }
+
+  .contact-mosaic-item:last-child {
+    display: block;
   }
 }
 
@@ -490,6 +508,55 @@ SPACING SYSTEM (px)
 
 /* //////////////////////////////////////// height media queries /////////////////////////////////////////*/
 
+@media (max-height: 50rem) and (max-width: 52rem) {
+  .form-input {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
+  .contact-form {
+    gap: 0.2rem;
+  }
+}
+
+@media (max-height: 40rem) and (max-width: 52rem) {
+  .cta {
+    grid-template-columns: 85fr 15fr;
+  }
+
+  .contact-form {
+    gap: 0.2rem;
+  }
+
+  .contact-heading {
+    margin-bottom: 0.4rem;
+  }
+
+  .message-area {
+  }
+
+  .contact-photo {
+    display: none;
+  }
+
+  .form-input {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
+  .contact-mosaic-item:last-child {
+    display: none;
+  }
+
+  .cta {
+    grid-template-columns: 85fr 15fr;
+  }
+
+  .contact-mosaic {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+}
 @media (max-height: 35rem) {
   .nav {
     background-color: #ffffff00;
@@ -564,6 +631,17 @@ SPACING SYSTEM (px)
 
   .paralax {
     height: 70vh;
+  }
+
+  .cta.container {
+  }
+
+  .contact-mosaic-item:last-child {
+    display: none;
+  }
+
+  .contact-photo {
+    display: none;
   }
 }
 
